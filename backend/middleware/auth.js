@@ -1,23 +1,33 @@
-// Dummy authentication middleware
-const authenticator = (req, res, next) => {
-    const { authorization } = req.headers;
-  
-    // Check if an authorization token is present
-    if (!authorization) {
+const jwt = require('jsonwebtoken');
+const User = require('../model/user'); // Adjust the path based on your project structure
+const {connectToMongoDB} = require('./connect');
+const auth = async (req, res, next) => {
+  try {
+    // Check if the request contains cookies
+    console.log(req.cookies);
+    const token = req.cookies.token;
+    if (!token) {
       return res.status(401).json({ message: 'Unauthorized - No token provided' });
     }
-  
-    // For simplicity, let's assume a valid token is 'mysecrettoken'
-    const validToken = 'secret';
-  
-    // Check if the token is valid
-    if (authorization !== `Bearer ${validToken}`) {
-      return res.status(401).json({ message: 'Unauthorized - Invalid token' });
+
+    // Verify the JWT token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    await connectToMongoDB();
+    const user = await User.findOne({username: decoded.userId});
+
+    if (!user) {
+      return res.status(401).json({ message: 'Unauthorized - Invalid user' });
     }
-  
-    // If the token is valid, proceed to the next middleware/route
+
+    // Attach the user object to the request for later use
+    req.user = user.username;
     next();
-  };
-  
-  module.exports = authenticator;
-  
+  } catch (error) {
+    console.error(error);
+    res.status(401).json({ message: 'Unauthorized - Invalid token' });
+  }
+};
+
+
+
+module.exports = auth;

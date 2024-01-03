@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Whis</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" href="/frontend/public/login/css/util.css">
+	<link rel="stylesheet" href="/frontend/public/login/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body style="background-color: #666666;">
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" id="login">
+					<span class="login100-form-title p-b-43" id="validator">
+						Login to continue
+					</span>
+					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" id="email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="pass" id="pass">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="actionUser()">
+							Login
+						</button>
+					</div>
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2" onclick="toggle()">
+							or sign up using
+						</span>
+					</div>
+					<div class="login100-form-social flex-c-m">
+						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+				<div class="login100-more" style="background-image: url('/frontend/public/login/images/bg-01.jpg');">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		function toggle() {
+
+			const signUP = `<span class="login100-form-title p-b-43" id="validator">
+						Sign Up to Join
+					</span>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid name is required: John Doe">
+						<input class="input100" type="text" name="text" id="name">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Name</span>
+					</div>	
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" id="email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="pass" id="pass">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+					</div>
+			
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="actionUser()">
+							Sign Up
+						</button>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2" onclick="toggle()">
+							or login using
+						</span>
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</div>`
+
+			const login = `<span class="login100-form-title p-b-43" id="validator">
+						Login to continue
+					</span>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+			
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="actionUser()">
+							Login
+						</button>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2" onclick="toggle()">
+							or sign up using
+						</span>
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-facebook-f" aria-hidden="true"></i>
+						</a>
+
+						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</div>`
+
+			const forma = document.getElementById("login");
+			console.log("tes")
+			const validator = document.getElementById("validator");
+			console.log(validator.innerHTML.trim());
+
+			if (validator.innerHTML.trim() === 'Login to continue') {
+				console.log("yes");
+				forma.innerHTML = null;
+				forma.innerHTML = signUP;
+			}
+			else {
+				console.log("nope");
+				forma.innerHTML = null;
+				forma.innerHTML = login;
+			}
+
+			// Add event listeners back after updating content
+
+			// const toggleSpan = document.querySelector(".txt2");
+			// toggleSpan.addEventListener("click", toggle);
+
+		}
+
+		function actionUser() {
+			
+			event.preventDefault();
+
+			console.log("here");
+			const username = document.getElementById("email").value;
+			const password = document.getElementById("pass").value;
+			
+			console.log("actionUser")
+
+			const validator = document.getElementById("validator");
+			console.log(validator.innerHTML.trim());
+
+			if (validator.innerHTML.trim() === 'Login to continue') {
+
+				console.log("login");
+				var data = { username: username, password: password };
+				fetch('http://localhost:3000/api/user/login', {
+					method: 'POST',
+					credentials: "include",
+					headers: {
+						'Content-Type': 'application/json' 
+					},
+					body: JSON.stringify(data)
+				})
+					.then(response => response.json())
+					.then(data => {
+						// Handle the response from the backend if needed
+						console.log('Success:', data);
+						window.location.href = '/todo'
+						
+						
+					})
+
+					.catch((error) => {
+						console.error('Error:', error);
+					});
+
+			}
+			else {
+
+				console.log("signup");
+				const name = document.getElementById("name").value;
+				var data = { username: username, password: password, name: name };
+
+				console.log(data);
+				fetch('http://localhost:3000/api/user/signup', {
+					method: 'POST',
+					credentials: "include",
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(data)
+				})
+					.then(response => response.json())
+					.then(data => {
+						// Handle the response from the backend if needed
+						console.log('Success:', data);
+						toggle();
+
+						//add cookies~!!~
+
+
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+						//window.location.href = '/';
+
+					});
+
+
+
+			}
+		}
+
+	</script>
+
+	<!--===============================================================================================-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/countdown/2.6.0/countdown.min.js"></script>
+
+	<!--===============================================================================================-->
+	<script src="./js/main.js"></script>
+
+
+
+</body>
+
+</html>
