@@ -22,7 +22,7 @@ async function connectToMongoDB()
 
   try {
     const db = await mongoose.connect(
-      "mongodb+srv://whis:n7nSwYn5NWoKYxwg@cluster0.3zjqqdu.mongodb.net/Proto",
+      "",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
